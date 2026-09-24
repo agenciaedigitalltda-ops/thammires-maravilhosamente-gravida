@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#3D3331">
+  <meta name="robots" content="noindex">
+  <title>Ensaio gestante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="form-page" data-form="gestante">
+  <div class="progress" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
+  <div class="topbar is-hidden" id="topbar">
+    <button class="back" id="back" type="button" aria-label="Voltar" hidden>←</button>
+    <span class="progress-text" id="progress-text" aria-live="polite"></span>
+  </div>
+  <main id="stage"></main>
+
+<p class="load-fail" id="load-fail" hidden>Não foi possível carregar os arquivos da pasta <b>assets/</b>. Confira se ela foi enviada junto com as páginas (assets/config.js, common.js, form.js e style.css) e abra a página em um navegador normal.</p>
+  <script>setTimeout(function(){ if(!window.LP||!window.APP_CONFIG){ var e=document.getElementById('load-fail'); e.hidden=false; e.style.cssText='font:16px/1.5 system-ui,sans-serif;max-width:480px;margin:40px auto;padding:16px;border:1px solid #d33;border-radius:10px;color:#222;background:#fff'; } }, 1500);</script>
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/form.js"></script>
+</body>
+</html>

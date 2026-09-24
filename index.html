@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#3D3331">
+  <title>Início</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="home-page">
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="brand brand-hero" data-brand></div>
+      <p class="hero-selo" id="h-selo"></p>
+      <h1 class="hero-title" id="h-titulo" data-fit></h1>
+      <p class="hero-text" id="h-chamada"></p>
+      <a class="btn btn-primary hero-cta" id="h-cta" hidden></a>
+      <a class="hero-link" id="h-wa" target="_blank" rel="noopener" data-wa="home-hero" hidden></a>
+    </div>
+  </header>
+
+  <main class="home">
+    <section class="about" id="about" hidden>
+      <h2 class="about-title" id="a-titulo"></h2>
+      <p class="about-text" id="a-texto"></p>
+      <div id="a-galeria"></div>
+    </section>
+    <p class="sub" id="h-sub"></p>
+    <nav class="paths" id="paths" aria-label="Escolha um caminho"></nav>
+    <p class="home-foot" id="h-foot"></p>
+  </main>
+
+<p class="load-fail" id="load-fail" hidden>Não foi possível carregar os arquivos da pasta <b>assets/</b>. Confira se ela foi enviada junto com as páginas (assets/config.js, common.js, form.js e style.css) e abra a página em um navegador normal.</p>
+  <script>setTimeout(function(){ if(!window.LP||!window.APP_CONFIG){ var e=document.getElementById('load-fail'); e.hidden=false; e.style.cssText='font:16px/1.5 system-ui,sans-serif;max-width:480px;margin:40px auto;padding:16px;border:1px solid #d33;border-radius:10px;color:#222;background:#fff'; } }, 1500);</script>
+  <script src="assets/config.js"></script>
+  <script>
+    // Página inicial desligada (home.ativa = false): abre direto o formulário, mantendo as UTMs
+    (function () {
+      var C = window.APP_CONFIG || {}, H = C.home || {};
+      var id = (C.ensaiosAtivos || [])[0], f = id && (C.formularios || {})[id];
+      if (H.ativa === false && f) { document.documentElement.style.visibility = 'hidden'; location.replace(f.pagina + location.search); }
+    })();
+  </script>
+  <script src="assets/common.js"></script>
+  <script>
+    (function () {
+      var LP = window.LP, C = LP.config, H = C.home, el = LP.el;
+      LP.boot();
+      document.title = C.negocio.nome || H.selo || 'Início';
+
+      function set(id, txt) { var n = document.getElementById(id); if (txt) n.textContent = txt; else n.hidden = true; }
+      var qs = location.search; // mantém as UTMs do anúncio ao ir para o formulário
+      var ativos = (C.ensaiosAtivos || []).filter(function (id) {
+        if (!C.formularios[id]) console.warn('[Home] ensaio "' + id + '" não existe em formularios');
+        return !!C.formularios[id];
+      });
+      var wa = LP.waLink(C.negocio.whatsapp, H.mensagemWhatsapp);
+
+      /* ----- Abertura (hero) ----- */
+      var hero = document.getElementById('hero');
+      var fotosHero = (H.fotosHero || []).filter(Boolean).slice(0, 2);
+      fotosHero.forEach(function (src, i) {
+        var img = el('img', { class: 'hero-photo ' + (i === 0 ? 'hero-left' : 'hero-right'), src: src, alt: '', fetchpriority: i === 0 ? 'high' : null });
+        img.addEventListener('error', function () { img.remove(); if (!hero.querySelector('.hero-photo')) hero.classList.remove('has-photo'); });
+        hero.insertBefore(img, hero.firstChild);
+      });
+      if (fotosHero.length) {
+        hero.classList.add('has-photo');
+        // no celular a marca fica no topo, sobre a foto
+        var top = el('div', { class: 'brand brand-hero brand-top', 'data-brand': true });
+        hero.appendChild(top); LP.renderBrand(hero);
+      }
+      if (fotosHero.length === 1) hero.classList.add('one-photo');
+
+      set('h-selo', H.selo);
+      set('h-titulo', H.titulo);
+      set('h-chamada', H.chamada || C.negocio.descricao);
+      if (ativos.length) {
+        var cta = document.getElementById('h-cta');
+        cta.href = C.formularios[ativos[0]].pagina + qs;
+        cta.hidden = false;
+        cta.appendChild(document.createTextNode(H.botao || 'Quero meu ensaio'));
+        cta.appendChild(el('span', { class: 'arrow', 'aria-hidden': 'true', text: '→' }));
+      }
+      if (wa && H.linkWhatsapp) {
+        var hw = document.getElementById('h-wa');
+        hw.href = wa; hw.textContent = H.linkWhatsapp; hw.hidden = false;
+      }
+
+      LP.fitText();
+
+      /* ----- Apresentação: trecho + quadro de fotos ----- */
+      var A = C.apresentacao || {};
+      var g = LP.gallery(6);
+      if (A.texto || g) {
+        document.getElementById('about').hidden = false;
+        set('a-titulo', A.titulo);
+        set('a-texto', A.texto);
+        if (g) document.getElementById('a-galeria').appendChild(g);
+      }
+
+      /* ----- Caminhos (cartões abaixo da abertura) ----- */
+      if (H.mostrarOpcoes === false) { ativos = []; wa = ''; }
+      set('h-sub', ativos.length || wa ? H.subtitulo : '');
+      set('h-foot', C.negocio.nome ? '© ' + new Date().getFullYear() + ' ' + C.negocio.nome : '');
+      var box = document.getElementById('paths');
+      function card(o) {
+        box.appendChild(el('a', {
+          class: 'path' + (o.wa ? ' path-wa' : ''), href: o.href,
+          target: o.wa ? '_blank' : null, rel: o.wa ? 'noopener' : null, 'data-wa': o.wa ? 'home' : null
+        }, [
+          o.etiqueta ? el('span', { class: 'path-tag', text: o.etiqueta }) : null,
+          el('span', { class: 'path-title', text: o.titulo }),
+          o.texto ? el('span', { class: 'path-text', text: o.texto }) : null,
+          el('span', { class: 'path-go', 'aria-hidden': 'true', text: o.wa ? '↗' : '→' }),
+          o.tempo ? el('span', { class: 'path-time', text: '⏱ ' + o.tempo }) : null
+        ]));
+      }
+      ativos.forEach(function (id) {
+        var f = C.formularios[id];
+        card({ href: f.pagina + qs, etiqueta: f.card.etiqueta, titulo: f.card.titulo, texto: f.card.texto, tempo: f.card.tempo });
+      });
+      if (wa) card({ wa: true, href: wa, etiqueta: H.cardWhatsapp.etiqueta, titulo: H.cardWhatsapp.titulo, texto: H.cardWhatsapp.texto });
+    })();
+  </script>
+</body>
+</html>
