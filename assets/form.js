@@ -336,7 +336,7 @@
     var dots = el('div', { class: 'car-dots', 'aria-hidden': 'true' });
     var slides = lista.map(function (f, k) {
       var sl = el('div', { class: 'cf-slide', onclick: function () { if (k !== i) { pausa = Date.now(); ir(k); } } }, [
-        el('img', { src: f.src, alt: f.alt || 'Foto ' + (k + 1), loading: k < 3 || k === n - 1 ? 'eager' : 'lazy', decoding: 'async', draggable: 'false' })
+        el('img', { src: f.src, alt: f.alt || 'Foto ' + (k + 1), loading: k < 3 || k === n - 1 ? 'eager' : 'lazy', decoding: 'async', draggable: 'false', style: f.foco ? 'object-position:' + f.foco : null })
       ]);
       stage.appendChild(sl);
       dots.appendChild(el('button', { type: 'button', tabindex: '-1', onclick: function () { pausa = Date.now(); ir(k); } }));

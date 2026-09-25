@@ -31,13 +31,18 @@ window.APP_CONFIG = {
     titulo: "Sobre o meu trabalho",
     texto: "",           // 2 ou 3 frases sobre o jeito da Thammires fotografar
     fotos: [
-      // ⚠️ PROVISÓRIAS: substitua os arquivos em assets/fotos/ pelas fotos reais da Thammires
-      "assets/fotos/1.jpg",
-      "assets/fotos/2.jpg",
-      "assets/fotos/3.jpg",
-      "assets/fotos/4.jpg",
-      "assets/fotos/5.jpg",
-      "assets/fotos/6.jpg"
+      // foco = ponto da foto que fica sempre visível no recorte (horizontal vertical)
+      { src: "assets/fotos/carrossel/01.jpg", foco: "68% 50%" },
+      { src: "assets/fotos/carrossel/02.jpg", foco: "45% 40%" },
+      { src: "assets/fotos/carrossel/03.jpg" },
+      { src: "assets/fotos/carrossel/04.jpg" },
+      { src: "assets/fotos/carrossel/05.jpg", foco: "62% 50%" },
+      { src: "assets/fotos/carrossel/06.jpg" },
+      { src: "assets/fotos/carrossel/07.jpg", foco: "50% 70%" },
+      { src: "assets/fotos/carrossel/08.jpg" },
+      { src: "assets/fotos/carrossel/09.jpg" },
+      { src: "assets/fotos/carrossel/10.jpg", foco: "40% 50%" },
+      { src: "assets/fotos/carrossel/11.jpg", foco: "65% 50%" }
     ],
     fotosNoFormulario: false  // true = faixa com 3 fotos na abertura (quando não houver fotos laterais)
   },
