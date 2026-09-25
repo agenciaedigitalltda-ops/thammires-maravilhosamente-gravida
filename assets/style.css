@@ -369,6 +369,24 @@ textarea.field { resize: none; line-height: 1.4; min-height: 96px; font-size: 19
   .welcome-cover .wc-content::before { display: none; }
 }
 
+/* ---------- abertura com UMA foto centralizada no topo (boasVindas.fotoCentral) ---------- */
+.wc-center {
+  left: 50%; transform: translateX(-50%); width: 100%; max-width: 560px; height: 60svh; object-position: center 25%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 100%), linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 50%, transparent 100%), linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+@media (max-width: 559px) {
+  .wc-center { -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 100%); mask-image: linear-gradient(to bottom, #000 50%, transparent 100%); }
+}
+.welcome-center .wc-content { padding-top: 44svh; }
+@media (min-width: 900px) {
+  .step.welcome-center { justify-content: flex-end; }
+  .wc-center { height: 62vh; width: auto; max-width: 70%; top: 0; bottom: auto; }
+  .welcome-center .wc-content { padding: 45vh 20px 32px; }
+  .welcome-center .wc-content::before { display: none; }
+}
+
 @media (min-width: 720px) {
   .step { padding-top: 100px; }
   .home { padding-top: 56px; }

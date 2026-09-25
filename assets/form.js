@@ -400,12 +400,22 @@
       bv.tempo ? el('p', { class: 'w-time', text: bv.tempo }) : null
     ];
     var node;
-    if (laterais.length) {
+    // Foto única centralizada no topo, dissolvendo para baixo (tem prioridade sobre as laterais)
+    var central = bv.fotoCentral;
+    if (central) {
+      if (typeof central === 'string') central = { src: central };
+      node = el('section', { class: 'step step-welcome welcome-cover welcome-center' }, [
+        el('img', { class: 'wc-photo wc-center', src: central.src, alt: '', fetchpriority: 'high', style: central.foco ? 'object-position:' + central.foco : null }),
+        el('div', { class: 'wc-content' }, conteudo)
+      ]);
+    } else if (laterais.length) {
       var espelho = laterais.length === 1; // 1 foto só: repete do outro lado, espelhada
       if (espelho) laterais.push(laterais[0]);
+      // cada foto pode ser "caminho.jpg" ou { src: "caminho.jpg", foco: "60% 20%" } (ponto da foto que fica sempre visível)
+      laterais = laterais.map(function (f) { return typeof f === 'string' ? { src: f } : f; });
       node = el('section', { class: 'step step-welcome welcome-cover' }, [
-        el('img', { class: 'wc-photo wc-left', src: laterais[0], alt: '', fetchpriority: 'high' }),
-        el('img', { class: 'wc-photo wc-right' + (espelho ? ' wc-mirror' : ''), src: laterais[1], alt: '' }),
+        el('img', { class: 'wc-photo wc-left', src: laterais[0].src, alt: '', fetchpriority: 'high', style: laterais[0].foco ? 'object-position:' + laterais[0].foco : null }),
+        el('img', { class: 'wc-photo wc-right' + (espelho ? ' wc-mirror' : ''), src: laterais[1].src, alt: '', style: laterais[1].foco ? 'object-position:' + laterais[1].foco : null }),
         el('div', { class: 'wc-content' }, conteudo)
       ]);
     } else {

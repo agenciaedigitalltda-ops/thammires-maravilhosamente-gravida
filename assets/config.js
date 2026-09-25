@@ -133,7 +133,11 @@ window.APP_CONFIG = {
         titulo: "Maravilhosamente Grávida",
         texto: "Um ensaio pensado de forma exclusiva para você. Traga sua personalidade para criarmos fotos únicas para esse momento especial da sua vida.",
         botao: "Começar",
-        fotosLaterais: [],   // 2 fotos na vertical, uma de cada lado (1 foto = repete espelhada)   // 2 fotos na vertical, uma de cada lado (vazio = usa home.fotosHero)
+        fotoCentral: { src: "assets/fotos/capa-esquerda.jpg", foco: "58% 25%" },   // 1 foto no topo, dissolvendo para baixo (apague esta linha para usar as 2 fotos laterais abaixo)
+        fotosLaterais: [     // 2 fotos na vertical, uma de cada lado (1 foto = repete espelhada)
+          { src: "assets/fotos/capa-esquerda.jpg", foco: "58% 30%" },   // foco = ponto que fica sempre visível
+          { src: "assets/fotos/capa-direita.jpg", foco: "66% 30%" }
+        ],   // 2 fotos na vertical, uma de cada lado (vazio = usa home.fotosHero)
         tempo: "Responda em 1 minuto e receba valores e datas no seu WhatsApp"
       },
       perguntaNome: "Antes de tudo, como você se chama?",
