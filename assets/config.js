@@ -155,12 +155,6 @@ window.APP_CONFIG = {
           opcoes: ["Até 24 semanas", "De 25 a 29 semanas", "De 30 a 34 semanas", "35 semanas ou mais"]
         },
         {
-          id: "entrega", coluna: "Como quer as fotos", tipo: "multipla", obrigatorio: true,
-          titulo: "Como você gostaria de guardar essas fotos?",
-          ajuda: "Pode marcar mais de uma opção.",
-          opcoes: ["Fotos digitais", "Álbum impresso", "Quadros para a parede", "Ainda não pensei nisso"]
-        },
-        {
           id: "vitrine", tipo: "galeria",
           titulo: "Veja um pouco do nosso trabalho",
           botao: "É isso que eu quero!",
