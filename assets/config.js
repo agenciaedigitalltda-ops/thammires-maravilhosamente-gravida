@@ -155,25 +155,10 @@ window.APP_CONFIG = {
           opcoes: ["Até 24 semanas", "De 25 a 29 semanas", "De 30 a 34 semanas", "35 semanas ou mais"]
         },
         {
-          id: "dpp", coluna: "Data prevista do parto", tipo: "data", limite: "futura", obrigatorio: false,
-          titulo: "Qual a data prevista para o parto?",
-          ajuda: "Se não souber a data exata, pode pular."
-        },
-        {
-          id: "primeiro", coluna: "Primeiro bebê?", tipo: "escolha", obrigatorio: true,
-          titulo: "É o seu primeiro bebê, {nome}?",
-          opcoes: ["Sim, o primeiro!", "Não, já tenho filho(s)"]
-        },
-        {
-          id: "participantes", coluna: "Quem participa", tipo: "multipla", obrigatorio: true,
-          titulo: "Quem você gostaria que participasse do ensaio?",
+          id: "entrega", coluna: "Como quer as fotos", tipo: "multipla", obrigatorio: true,
+          titulo: "Como você gostaria de guardar essas fotos?",
           ajuda: "Pode marcar mais de uma opção.",
-          opcoes: ["Só eu", "Parceiro(a)", "Filho(s)", "Pet", "Outros familiares"]
-        },
-        {
-          id: "local", coluna: "Local", tipo: "escolha", obrigatorio: true,
-          titulo: "Onde você imagina o seu ensaio?",
-          opcoes: ["Em estúdio", "Ao ar livre", "Em casa", "Ainda não sei, quero sugestões"]
+          opcoes: ["Fotos digitais", "Álbum impresso", "Quadros para a parede", "Ainda não pensei nisso"]
         },
         {
           id: "vitrine", tipo: "galeria",
@@ -183,31 +168,9 @@ window.APP_CONFIG = {
           fotos: []           // vazio = usa as fotos de apresentacao.fotos
         },
         {
-          id: "entrega", coluna: "Como quer as fotos", tipo: "multipla", obrigatorio: true,
-          titulo: "Como você gostaria de guardar essas fotos?",
-          ajuda: "Pode marcar mais de uma opção.",
-          opcoes: ["Fotos digitais", "Álbum impresso", "Quadros para a parede", "Ainda não pensei nisso"]
-        },
-        {
           id: "momento", coluna: "Momento de decisão", tipo: "escolha", obrigatorio: true,
           titulo: "Em que momento você está?",
           opcoes: ["Quero agendar logo", "Estou comparando fotógrafos", "Só pesquisando valores por enquanto"]
-        },
-        {
-          id: "cidade", coluna: "Cidade / bairro", tipo: "texto", obrigatorio: true,
-          titulo: "Em qual cidade e bairro você mora?",
-          placeholder: "Cidade – bairro", min: 3
-        },
-        {
-          id: "instagram", coluna: "Instagram", tipo: "instagram", obrigatorio: false,
-          titulo: "Qual o seu @ no Instagram?",
-          ajuda: "Opcional.",
-          placeholder: "@seuperfil"
-        },
-        {
-          id: "sonho", coluna: "Ideias / observações", tipo: "textarea", obrigatorio: false,
-          titulo: "Tem algo especial que você sonha para esse ensaio?",
-          placeholder: "Uma ideia, uma referência, um detalhe…"
         }
       ],
       final: {
