@@ -32,7 +32,8 @@
   }
 
   /* ---------- estado (sobrevive a um recarregar da página) ---------- */
-  var KEY = 'lp_form_' + formId;
+  // chave inclui o caminho do site: várias clientes no mesmo domínio não misturam o progresso
+  var KEY = 'lp_form_' + location.pathname.split('/')[1] + '_' + formId;
   var state = LP.storage(function (s) { return JSON.parse(s.getItem(KEY) || 'null'); });
   if (!state || state.status === 'Completo') {
     state = { leadId: newId(), answers: {}, index: 0, status: '' };
@@ -332,10 +333,14 @@
   function renderGaleria(q) {
     var lista = fotosDe(q);
     var n = lista.length, i = 0, pausa = 0;
-    var stage = el('div', { class: 'coverflow', role: 'region', 'aria-label': 'Fotos do trabalho' });
+    // formato do quadro = formato das fotos (ex.: "2/3" para vertical de câmera), assim nada é cortado
+    var fm = String(q.formato || '4/5').split('/'), ar = (+fm[0] || 4) / (+fm[1] || 5);
+    var larg = q.tamanho || 0.68;                      // largura da foto central (fração da área)
+    var stage = el('div', { class: 'coverflow', role: 'region', 'aria-label': 'Fotos do trabalho',
+      style: 'aspect-ratio:' + (ar / larg).toFixed(4) + ';width:min(100%, 520px, calc(60svh * ' + (ar / larg).toFixed(4) + '))' });
     var dots = el('div', { class: 'car-dots', 'aria-hidden': 'true' });
     var slides = lista.map(function (f, k) {
-      var sl = el('div', { class: 'cf-slide', onclick: function () { if (k !== i) { pausa = Date.now(); ir(k); } } }, [
+      var sl = el('div', { class: 'cf-slide', style: 'width:' + (larg * 100).toFixed(1) + '%;aspect-ratio:' + ar.toFixed(4), onclick: function () { if (k !== i) { pausa = Date.now(); ir(k); } } }, [
         el('img', { src: f.src, alt: f.alt || 'Foto ' + (k + 1), loading: k < 3 || k === n - 1 ? 'eager' : 'lazy', decoding: 'async', draggable: 'false', style: f.foco ? 'object-position:' + f.foco : null })
       ]);
       stage.appendChild(sl);
@@ -390,6 +395,7 @@
       el('div', { class: 'brand', 'data-brand': true }),
       !laterais.length && (C.apresentacao || {}).fotosNoFormulario ? LP.gallery(3, 'gallery-strip') : null,
       el('h1', { class: 'w-title', 'data-fit': true, text: bv.titulo }),
+      bv.assinatura ? el('p', { class: 'w-byline', text: bv.assinatura }) : null,
       el('p', { class: 'w-text', text: bv.texto }),
       el('div', { class: 'actions' }, [
         el('button', { type: 'button', class: 'btn btn-primary btn-lg', 'data-autofocus': true, onclick: function () {

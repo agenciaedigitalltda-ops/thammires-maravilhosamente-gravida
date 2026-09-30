@@ -61,6 +61,12 @@ window.LP = (function () {
     var root = document.documentElement;
     Object.keys(TEMA_VARS).forEach(function (k) { if (t[k]) root.style.setProperty(TEMA_VARS[k], t[k]); });
     if (t.botao1 && !t.botao2) root.style.setProperty('--btn-2', t.botao1);
+    if (t.blocos) {   // fundo das opções/caixas
+      root.style.setProperty('--surface', t.blocos);
+      root.style.setProperty('--surface-2', 'color-mix(in srgb, ' + t.blocos + ' 90%, ' + (t.texto || '#000') + ')');
+    }
+    if (t.linhas) root.style.setProperty('--line', t.linhas);
+    if (t.claro) root.classList.add('tema-claro');
     if (t.titulosMaiusculos !== false) root.classList.add('caps');
     if (t.brilhoBotao !== false) root.classList.add('shine');
     var meta = document.querySelector('meta[name="theme-color"]');
@@ -90,10 +96,10 @@ window.LP = (function () {
     (root || document).querySelectorAll('[data-brand]').forEach(function (box) {
       box.innerHTML = '';
       if (!negocio.nome && !negocio.logoUrl) { box.hidden = true; return; }
-      var mark = negocio.logoUrl
-        ? el('img', { class: 'brand-logo', src: negocio.logoUrl, alt: negocio.nome || 'Logo' })
+      var mark = !negocio.logoUrl && negocio.monograma === false ? null : negocio.logoUrl
+        ? el('img', { class: 'brand-logo', src: negocio.logoUrl, alt: negocio.nome || 'Logo', style: negocio.logoAltura ? 'height:' + negocio.logoAltura + 'px' : null })
         : el('span', { class: 'brand-mono', 'aria-hidden': 'true', text: initials(negocio.nome) });
-      box.appendChild(mark);
+      if (mark) box.appendChild(mark);
       var nomeNaLogo = negocio.logoUrl && negocio.nomeNaLogo;
       if (negocio.nome && !nomeNaLogo) box.appendChild(el('span', { class: 'brand-name', text: negocio.nome }));
     });
@@ -188,17 +194,18 @@ window.LP = (function () {
   }
 
   /* ---------- Origem do visitante (UTMs) ---------- */
+  var ORIGEM_KEY = 'lp_origem_' + location.pathname.split('/')[1];
   var ORIGEM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'origem'];
 
   function storage(fn) { try { return fn(window.sessionStorage); } catch (e) { return null; } }
 
   function captureOrigin() {
     var params = new URLSearchParams(location.search);
-    var o = storage(function (s) { return JSON.parse(s.getItem('lp_origem') || '{}'); }) || {};
+    var o = storage(function (s) { return JSON.parse(s.getItem(ORIGEM_KEY) || '{}'); }) || {};
     ORIGEM_KEYS.forEach(function (k) { var v = params.get(k); if (v) o[k] = v.slice(0, 300); });
     if (!o.referrer && document.referrer && document.referrer.indexOf(location.origin) !== 0) o.referrer = document.referrer.slice(0, 300);
     if (!o.entrada) o.entrada = location.pathname.split('/').pop() || 'index.html';
-    storage(function (s) { s.setItem('lp_origem', JSON.stringify(o)); });
+    storage(function (s) { s.setItem(ORIGEM_KEY, JSON.stringify(o)); });
     return o;
   }
 
