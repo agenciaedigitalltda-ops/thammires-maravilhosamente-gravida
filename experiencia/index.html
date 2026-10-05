@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ensaio Gestante – Maravilhosamente Grávida | Thammires Turunem</title>
+<meta name="description" content="Mais do que um ensaio gestante: uma experiência completa para você se sentir linda, segura e bem conduzida em cada detalhe.">
+<meta property="og:title" content="Maravilhosamente Grávida – Thammires Turunem">
+<meta property="og:description" content="Uma experiência completa pensada para você se sentir linda, segura e bem conduzida em cada detalhe.">
+<meta property="og:image" content="../assets/fotos/capa-direita.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@400;500;600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marrom:#5C4034;
+  --creme:#FCF3EC;
+  --creme-card:#FBF1E8;
+  --dourado:#A9794C;
+  --texto:#7C6A61;
+  --linha:#D9C3AF;
+  --branco:#FFFFFF;
+  --serif:"Libre Baskerville", Georgia, serif;
+  --sans:"Raleway", system-ui, sans-serif;
+  --btn:"Poppins", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--creme);color:var(--texto);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 20px}
+em,.it{font-style:italic;color:var(--dourado)}
+strong{font-weight:600;color:var(--marrom)}
+
+/* ---------- Tipografia ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--texto);margin-bottom:14px}
+.eyebrow::before{content:"";width:6px;height:6px;background:var(--dourado);transform:rotate(45deg)}
+.titulo{font-family:var(--serif);font-weight:400;color:var(--marrom);font-size:clamp(24px,3.4vw,34px);line-height:1.3;margin-bottom:18px}
+.titulo em{color:var(--dourado)}
+.centro{text-align:center}
+
+/* ---------- Botão ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--marrom);color:#fff;text-decoration:none;font-family:var(--btn);font-weight:500;font-size:14px;padding:13px 26px;border-radius:4px;box-shadow:0 8px 22px rgba(92,64,52,.28);transition:transform .25s, box-shadow .25s, background .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(92,64,52,.38);background:#6d4c3e}
+.btn svg{width:16px;height:16px;fill:currentColor;flex:none}
+.btn-claro{background:var(--creme);color:var(--marrom)}
+.btn-claro:hover{background:#fff}
+
+/* ---------- Animação de entrada ---------- */
+.rev{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease}
+.rev.on{opacity:1;transform:none}
+
+/* ---------- 1. Abertura ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#6f625d}
+.hero .lado{position:absolute;top:0;bottom:0;width:50%;background-size:cover}
+.hero .esq{left:0;background-image:url(../assets/fotos/capa-esquerda.jpg);background-position:30% center}
+.hero .dir{right:0;background-image:url(../assets/fotos/capa-direita.jpg);background-position:70% center}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 75% at 50% 50%, rgba(120,108,104,.92) 0%, rgba(120,108,104,.78) 45%, rgba(60,45,40,.25) 85%)}
+.hero-in{position:relative;z-index:2;text-align:center;color:#fff;padding:60px 20px;max-width:640px}
+.hero-in .logo{width:150px;margin:0 auto 26px}
+.hero h1{font-family:var(--serif);font-weight:400;text-transform:uppercase;font-size:clamp(30px,5.6vw,52px);line-height:1.15;margin-bottom:14px;text-shadow:0 2px 18px rgba(0,0,0,.18)}
+.hero p{font-family:var(--serif);text-transform:uppercase;font-size:clamp(14px,2vw,18px);line-height:1.55;margin:0 auto 34px;max-width:520px}
+
+/* ---------- 2. Faixa ---------- */
+.faixa{background:var(--marrom);color:#E9D8C8;overflow:hidden;padding:26px 0;white-space:nowrap}
+.faixa-track{display:inline-flex;gap:38px;animation:corre 32s linear infinite;font-family:var(--serif);font-size:17px;padding-left:38px}
+.faixa-track span{display:inline-flex;align-items:center;gap:38px}
+.faixa-track span::after{content:"◆";font-size:11px;color:var(--dourado)}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* ---------- Seções creme ---------- */
+.sec{padding:90px 0}
+.sec-marrom{background:var(--marrom)}
+
+/* 3. Método */
+.metodo{background:var(--marrom);color:#EADBCD;border-radius:6px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding:56px;align-items:center}
+.metodo .eyebrow{color:#D7C1AE}
+.metodo .titulo{color:#fff}
+.metodo .titulo em{color:#E2C3A8}
+.metodo strong{color:#fff}
+.lista{list-style:none;margin:20px 0}
+.lista li{position:relative;padding-left:28px;margin-bottom:8px}
+.lista li::before{content:"";position:absolute;left:0;top:5px;width:15px;height:15px;border:1.5px solid currentColor;border-radius:50%;background:radial-gradient(circle, currentColor 0 2px, transparent 3px)}
+.metodo .lista li::before{color:#E2C3A8}
+.foto{border-radius:6px;overflow:hidden;box-shadow:0 18px 40px rgba(60,40,30,.18)}
+.foto img{width:100%;height:100%;object-fit:cover}
+.metodo .foto{aspect-ratio:4/5}
+
+/* 4. Por que */
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.citacao{font-family:var(--serif);font-style:italic;color:var(--marrom);font-size:19px;margin:14px 0}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.tags span{border:1px solid var(--linha);border-radius:30px;padding:6px 16px;font-family:var(--serif);font-style:italic;color:var(--marrom);font-size:14px;background:#fff8}
+.porque .foto{aspect-ratio:4/5}
+
+/* 5. Não precisa se preocupar */
+.cartao-creme{background:var(--creme);border-radius:6px;padding:56px 48px;text-align:center}
+.cartao-creme > p{max-width:640px;margin:0 auto 6px}
+.galeria{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px;margin:38px 0}
+.galeria .foto{box-shadow:none}
+.galeria .g1{grid-row:span 2}
+.galeria .g4{grid-column:span 2}
+.bloco-dest{font-family:var(--serif);font-size:20px;color:var(--marrom);margin:8px 0 22px}
+.cartao-creme .rodape-txt{max-width:640px;margin:0 auto 12px}
+
+/* 6. Cards da experiência */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:44px auto 48px;max-width:860px}
+.card{background:var(--creme-card);border:1px solid #EEDCCB;border-radius:6px;padding:30px 28px;box-shadow:0 10px 30px rgba(92,64,52,.08);transition:transform .3s, box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(92,64,52,.14)}
+.card svg{width:26px;height:26px;stroke:var(--marrom);fill:none;stroke-width:1.4;margin-bottom:18px}
+.card h3{font-family:var(--sans);font-weight:600;color:var(--marrom);font-size:16px;margin-bottom:10px}
+.card p{font-size:14px}
+
+/* 7. A escolha */
+.escolha .fotos2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.escolha .foto{aspect-ratio:3/4}
+.escolha .foto:nth-child(2){margin-top:46px}
+
+/* 8. Resultados (carrossel) */
+.res-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:30px}
+.res-topo p{max-width:300px;font-size:14px}
+.carrossel{position:relative}
+.trilho{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.trilho::-webkit-scrollbar{display:none}
+.trilho .foto{flex:0 0 calc(50% - 8px);aspect-ratio:4/5;scroll-snap-align:start;box-shadow:none}
+.ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.pontos{display:flex;gap:6px}
+.pontos button{width:22px;height:3px;border:0;background:var(--linha);cursor:pointer;border-radius:2px}
+.pontos button.on{background:var(--marrom)}
+.setas{display:flex;gap:10px}
+.setas button{background:none;border:0;font-size:22px;color:var(--marrom);cursor:pointer;padding:0 6px}
+.frase-final{text-align:center;margin-top:46px}
+.frase-final .citacao{font-size:20px}
+
+/* 9. Depoimentos */
+.depo-trilho{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;padding:6px 20px 20px;scroll-snap-type:x mandatory}
+.depo-trilho::-webkit-scrollbar{display:none}
+.depo-trilho img{height:360px;width:auto;border-radius:6px;scroll-snap-align:center;box-shadow:0 10px 26px rgba(92,64,52,.14)}
+
+/* 10. Planos */
+.planos{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:22px;align-items:center;margin-top:44px}
+.plano{background:var(--creme-card);border:1px solid #EEDCCB;border-radius:8px;padding:38px 26px 30px;text-align:center;box-shadow:0 14px 36px rgba(92,64,52,.10);position:relative}
+.plano h3{font-family:var(--serif);font-weight:400;color:var(--marrom);font-size:24px;letter-spacing:.04em;margin-bottom:14px}
+.plano > p{font-size:14px}
+.plano hr{border:0;border-top:1px solid var(--linha);margin:22px 0}
+.plano .para{display:flex;gap:10px;text-align:left;font-size:13px;margin-bottom:22px}
+.plano .para::before{content:"";flex:none;width:9px;height:9px;margin-top:5px;background:var(--dourado);transform:rotate(45deg)}
+.plano .para i{display:block;color:var(--marrom)}
+.plano .btn{width:100%;padding:13px 16px;font-size:13px}
+.plano.dest{padding:50px 30px 34px;border-color:var(--linha);box-shadow:0 22px 50px rgba(92,64,52,.18)}
+.plano.dest h3{font-size:28px}
+.plano .selo{position:absolute;left:50%;bottom:-46px;transform:translateX(-50%);background:var(--creme-card);border:1px solid #EEDCCB;border-top:0;border-radius:0 0 8px 8px;padding:12px 24px;font-family:var(--serif);font-size:14px;color:var(--dourado);letter-spacing:.06em;white-space:nowrap}
+
+/* 11. Agendamentos */
+.agenda{position:relative}
+.agenda::before,.agenda::after{content:"";position:absolute;width:420px;height:420px;border:1.5px solid #EAD8C6;border-radius:50%;z-index:0}
+.agenda::before{left:-240px;top:30%}
+.agenda::after{right:-240px;top:40%}
+.agenda .wrap{position:relative;z-index:1}
+.ag-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.ag-box{background:var(--creme-card);border:1px solid var(--linha);border-radius:4px;padding:30px 28px;box-shadow:0 10px 30px rgba(92,64,52,.07)}
+.ag-box h3{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--dourado);font-size:20px;margin-bottom:12px}
+.ag-box p{font-size:14px}
+.ag-box .btn{margin-top:18px}
+.ag-foto{max-width:960px;margin:28px auto;aspect-ratio:16/8}
+.ag-foto img{object-position:50% 55%}
+
+/* 12. FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:start}
+.faq-esq .foto{aspect-ratio:4/5;margin-top:34px}
+.faq-esq .btn{margin-top:10px}
+.faq-lista{display:flex;flex-direction:column;gap:22px}
+.faq{background:var(--marrom);color:#F3E6DA;border-radius:4px;position:relative;box-shadow:0 10px 24px rgba(92,64,52,.18)}
+.faq::after{content:"";position:absolute;left:18px;bottom:-9px;border:9px solid transparent;border-bottom:0;border-top-color:var(--marrom)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 48px 18px 20px;font-size:14px;font-weight:500;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:300;color:#E2C3A8;transition:transform .3s}
+.faq[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq .resp{padding:0 20px 20px;font-size:14px;color:#E6D5C6}
+
+/* 13. Rodapé */
+footer{background:var(--marrom);color:#E9D8C8;text-align:center;padding:60px 20px 40px;font-size:13px}
+footer .logo{width:150px;margin:0 auto 22px}
+.redes{display:flex;justify-content:center;gap:18px;margin-bottom:20px}
+.redes a{display:inline-flex;width:24px;height:24px}
+.redes svg{width:100%;height:100%;fill:#fff}
+
+/* ---------- Celular ---------- */
+@media (max-width: 860px){
+  .sec{padding:64px 0}
+  .metodo{grid-template-columns:1fr;padding:36px 24px;gap:28px}
+  .duas,.faq-grid{grid-template-columns:1fr;gap:34px}
+  .porque .foto{order:-1}
+  .cartao-creme{padding:40px 20px}
+  .galeria{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .galeria .g1{grid-row:span 2}
+  .galeria .g4{grid-column:span 2}
+  .cards{grid-template-columns:1fr;gap:16px}
+  .res-topo{flex-direction:column;align-items:flex-start;gap:6px}
+  .trilho .foto{flex:0 0 82%}
+  .planos{grid-template-columns:1fr;gap:28px}
+  .plano.dest{order:-1;margin-bottom:46px}
+  .ag-grid{grid-template-columns:1fr}
+  .ag-foto{aspect-ratio:4/3}
+  .depo-trilho img{height:300px}
+  .hero::after{background:radial-gradient(ellipse 95% 70% at 50% 50%, rgba(120,108,104,.9) 0%, rgba(120,108,104,.7) 55%, rgba(60,45,40,.35) 100%)}
+  .hero .esq{display:none}
+  .hero .dir{width:100%;background-position:62% center}
+}
+@media (prefers-reduced-motion: reduce){
+  .rev{opacity:1;transform:none;transition:none}
+  .faixa-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     CONFIGURAÇÃO (fim da página, no <script>): WhatsApp, Pixel, Instagram,
+     depoimentos. Os textos são editados direto aqui no HTML.
+     ===================================================================== -->
+
+<!-- 1. ABERTURA -->
+<header class="hero">
+  <div class="lado esq" role="img" aria-label="Gestante em ensaio fotográfico"></div>
+  <div class="lado dir" role="img" aria-label="Gestante em ensaio fotográfico"></div>
+  <div class="hero-in">
+    <img class="logo rev" src="../assets/logo.png" alt="Thammires Turunem">
+    <h1 class="rev">Mais do que um<br>ensaio gestante...</h1>
+    <p class="rev">Uma experiência completa pensada para que você se sinta linda, segura e bem conduzida em cada detalhe.</p>
+    <a class="btn rev" data-wa="Olá, Thammires! Vim pelo site e quero viver a experiência Maravilhosamente Grávida." href="#">Quero Essa Experiência</a>
+  </div>
+</header>
+
+<!-- 2. FAIXA -->
+<div class="faixa" aria-hidden="true">
+  <div class="faixa-track">
+    <span>Tempo de Qualidade</span><span>Escuta Ativa</span><span>Criação Exclusiva</span><span>Experiência Emocional</span>
+    <span>Tempo de Qualidade</span><span>Escuta Ativa</span><span>Criação Exclusiva</span><span>Experiência Emocional</span>
+  </div>
+</div>
+
+<!-- 3. O MÉTODO -->
+<section class="sec">
+  <div class="wrap">
+    <div class="metodo rev">
+      <div>
+        <div class="eyebrow">O método Maravilhosamente Grávida</div>
+        <h2 class="titulo">Cada ensaio é conduzido<br>através de um <em>método próprio:</em></h2>
+        <p>O <strong>Maravilhosamente Grávida</strong> é o processo que a Thammires criou para que você se sinta acolhida, orientada e tranquila do primeiro contato até a última foto.</p>
+        <ul class="lista">
+          <li>Você não precisa saber posar.</li>
+          <li>Não precisa saber o que fazer.</li>
+          <li>Você será guiada em cada detalhe.</li>
+          <li>Mesmo que nunca tenha feito fotos antes.</li>
+        </ul>
+        <p>Porque aqui <strong>o objetivo não é só fotografar</strong>. É fazer você se sentir <strong>confiante, leve e linda</strong> durante todo o processo.</p>
+      </div>
+      <div class="foto"><img src="../assets/fotos/carrossel/08.jpg" alt="Gestante de calça jeans em estúdio" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. POR QUE ESCOLHEM -->
+<section class="sec porque" style="padding-top:0">
+  <div class="wrap duas">
+    <div class="rev">
+      <div class="eyebrow">Por que gestantes escolhem esse ensaio?</div>
+      <h2 class="titulo"><em>Muitas gestantes</em> chegam<br>até aqui com a mesma dúvida:</h2>
+      <p class="citacao">“Será que eu vou gostar das minhas fotos?”</p>
+      <p>E o que mais se ouve depois do ensaio é:</p>
+      <p class="citacao">“Eu não imaginava que ia me sentir assim.”</p>
+      <p>Isso acontece porque nenhuma imagem é feita por acaso. Cada uma é pensada para transmitir:</p>
+      <div class="tags"><span>Tranquilidade</span><span>Leveza</span><span>Delicadeza</span><span>Emoção real</span></div>
+      <p style="margin-bottom:26px">E isso só acontece quando existe <strong>direção, cuidado e intenção</strong> em cada detalhe.</p>
+      <a class="btn" data-wa="Olá, Thammires! Vim pelo site e quero viver a experiência Maravilhosamente Grávida." href="#">Quero Essa Experiência</a>
+    </div>
+    <div class="foto rev"><img src="../assets/fotos/carrossel/06.jpg" alt="Gestante ajoelhada em silhueta" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- 5. NÃO PRECISA SE PREOCUPAR -->
+<section class="sec sec-marrom">
+  <div class="wrap">
+    <div class="cartao-creme rev">
+      <div class="eyebrow">O método Maravilhosamente Grávida</div>
+      <h2 class="titulo">Um ensaio onde você <em>não precisa<br>se preocupar</em> com nada</h2>
+      <p>Esse é um dos pontos que mais trazem alívio para as gestantes.</p>
+      <p><strong>Aqui, você não precisa decidir nada sozinha.</strong> Não precisa se preocupar com:</p>
+      <p>o que vestir, como se maquiar ou como posar.</p>
+
+      <div class="galeria">
+        <div class="foto g1"><img src="../assets/fotos/carrossel/02.jpg" alt="Gestante com vestido rosa diante de parede de flores" loading="lazy"></div>
+        <div class="foto"><img src="../assets/fotos/carrossel/09.jpg" alt="Gestante com vestido branco" loading="lazy"></div>
+        <div class="foto"><img src="../assets/fotos/carrossel/07.jpg" alt="Gestante sentada com tecido rosa" loading="lazy"></div>
+        <div class="foto g4"><img src="../assets/fotos/carrossel/10.jpg" alt="Gestante sentada em bloco branco" loading="lazy" style="object-position:50% 45%"></div>
+      </div>
+
+      <p class="bloco-dest">Tudo já está preparado para você!</p>
+      <!-- Se ela trabalha com maquiadora parceira, coloque o nome aqui -->
+      <p class="rodape-txt">A <strong>produção de beleza</strong> é feita por profissional especializada, que cuida de cada detalhe para valorizar sua beleza de forma natural e elegante.</p>
+      <p class="rodape-txt">A <strong>direção artística</strong>, a condução do ensaio e os figurinos ficam por conta da fotógrafa <strong>Thammires Turunem</strong>, que acompanha você em cada etapa.</p>
+      <p class="bloco-dest" style="margin-top:20px;font-style:italic;color:var(--dourado)">Você chega… e é conduzida com tranquilidade do começo ao fim.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. EXPERIÊNCIA NOS DETALHES -->
+<section class="sec">
+  <div class="wrap centro">
+    <div class="rev">
+      <div class="eyebrow">O método Maravilhosamente Grávida</div>
+      <h2 class="titulo"><em>Uma experiência</em> pensada<br>nos mínimos detalhes</h2>
+    </div>
+    <div class="cards" style="text-align:left">
+      <div class="card rev">
+        <svg viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9z"/><path d="M12 8v8M8 12h8"/></svg>
+        <h3>Direção de Poses</h3>
+        <p>Você não precisa saber se posicionar. Cada movimento é guiado com calma e sensibilidade, respeitando o seu corpo, sem poses forçadas ou desconfortáveis.</p>
+      </div>
+      <div class="card rev">
+        <svg viewBox="0 0 24 24"><path d="M12 4a2 2 0 1 1 2 2c-1 0-2 .6-2 1.6V9"/><path d="M12 9l9 7H3z"/><path d="M3 16v3h18v-3"/></svg>
+        <h3>Figurinos Disponíveis</h3>
+        <p>Peças selecionadas que conversam com a proposta do ensaio, para você não perder tempo com dúvidas e ter um resultado harmônico e sofisticado.</p>
+      </div>
+      <div class="card rev">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6l-1 6h-4z"/><rect x="8" y="9" width="8" height="12" rx="1.5"/><path d="M8 14h8"/></svg>
+        <h3>Produção de Beleza</h3>
+        <p>Maquiagem e cabelo pensados para a fotografia, feitos por profissional especializada, com um acabamento à altura da experiência.</p>
+      </div>
+      <div class="card rev">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+        <h3>Acompanhamento Total</h3>
+        <p>Do primeiro contato até a entrega final, você é acompanhada em cada etapa, com orientação e apoio para se sentir segura em todas as escolhas.</p>
+      </div>
+      <div class="card rev">
+        <svg viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c0 2 1 2 1 4M12 3c0 2 1 2 1 4"/></svg>
+        <h3>Momento de Pausa</h3>
+        <p>No meio do ensaio existe um instante que não se fotografa, se sente. O tempo desacelera e você percebe que está vivendo algo maior do que fotos.</p>
+      </div>
+      <div class="card rev">
+        <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>
+        <h3>Ambiente Preparado</h3>
+        <p>Um estúdio pensado para o seu conforto, com cenário, luz e temperatura ajustados antes de você chegar, para que a única preocupação seja aproveitar.</p>
+      </div>
+    </div>
+    <a class="btn rev" data-wa="Olá, Thammires! Vim pelo site e quero viver a experiência Maravilhosamente Grávida." href="#">Quero Essa Experiência</a>
+  </div>
+</section>
+
+<!-- 7. A ESCOLHA -->
+<section class="sec escolha" style="padding-top:20px">
+  <div class="wrap duas">
+    <div class="fotos2 rev">
+      <div class="foto"><img src="../assets/fotos/carrossel/04.jpg" alt="Gestante com vestido branco em fundo azul" loading="lazy"></div>
+      <div class="foto"><img src="../assets/fotos/carrossel/03.jpg" alt="Silhueta de gestante diante de luz circular" loading="lazy"></div>
+    </div>
+    <div class="rev">
+      <div class="eyebrow">A escolha</div>
+      <h2 class="titulo">Gestantes escolhem<br><em>viver essa experiência</em></h2>
+      <p>Elas não estão buscando apenas fotos.</p>
+      <p>Estão buscando <strong>segurança durante todo o processo</strong> e a certeza de que o resultado vai ser exatamente como sonharam.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. RESULTADOS -->
+<section class="sec" style="padding-top:20px">
+  <div class="wrap">
+    <div class="res-topo rev">
+      <h2 class="titulo" style="margin:0">Resultados que<br>vão <em>além das fotos</em></h2>
+      <!-- Se quiser, troque por um número real: "Mais de 300 mamães já registraram..." -->
+      <p>Mamães que já registraram a gestação com a <strong>Thammires Turunem</strong>.</p>
+    </div>
+    <div class="carrossel rev">
+      <div class="trilho" id="trilho"></div>
+      <div class="ctrl"><div class="pontos" id="pontos"></div><div class="setas"><button id="ant" aria-label="Anterior">‹</button><button id="prox" aria-label="Próxima">›</button></div></div>
+    </div>
+    <div class="frase-final rev">
+      <p class="citacao">Muitas gestantes dizem:<br>“Eu não me via assim durante a gravidez.”</p>
+      <p>Porque não é só sobre imagem.<br>É sobre se enxergar com mais leveza, mais carinho e mais segurança.</p>
+      <a class="btn" style="margin-top:26px" data-wa="Olá, Thammires! Vim pelo site e quero viver a experiência Maravilhosamente Grávida." href="#">Quero Essa Experiência</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. DEPOIMENTOS (aparece só quando houver prints na lista DEPOIMENTOS, no fim da página) -->
+<section class="sec" id="depoimentos" style="padding-top:10px" hidden>
+  <h2 class="titulo centro rev">Quem vive a experiência sente a diferença</h2>
+  <div class="depo-trilho" id="depo"></div>
+</section>
+
+<!-- 10. PLANOS -->
+<section class="sec" style="padding-top:20px">
+  <div class="wrap">
+    <div class="centro rev">
+      <div class="eyebrow">Planos do método</div>
+      <h2 class="titulo">Escolha a <em>experiência</em> que faz sentido para você</h2>
+    </div>
+    <div class="planos">
+      <div class="plano rev">
+        <h3>GOLD</h3>
+        <p>Você não quer apenas registrar. Quer viver uma experiência.</p>
+        <p>Quer explorar diferentes versões de si mesma e criar imagens com a sua identidade. Há mais tempo para criar, conversar, experimentar e construir algo único.</p>
+        <hr>
+        <div class="para"><span>Para quem deseja se reconhecer.<i>“Quero me sentir linda de novo e viver essa fase intensamente.”</i></span></div>
+        <a class="btn" data-wa="Olá, Thammires! Vim pelo site e tenho interesse no plano GOLD do ensaio gestante." href="#">Garantir Minha Data Agora</a>
+      </div>
+      <div class="plano dest rev">
+        <h3>PREMIUM</h3>
+        <p>O PREMIUM não é apenas um ensaio. É uma experiência criada para você.</p>
+        <p>Você não precisa se preocupar com produção, estilo ou decisões. Cada etapa é planejada para que você se sinta cuidada, valorizada e presente. Tudo acontece com mais tempo, mais personalização e atenção especial aos detalhes, com imagens de um nível artístico ainda mais sofisticado.</p>
+        <p>É a escolha de mulheres que sabem que alguns momentos são únicos e merecem ser vividos da melhor forma.</p>
+        <hr>
+        <div class="para"><span>Você escolhe o PREMIUM quando pensa:<i>“Quero viver tudo o que esse momento pode me oferecer.”</i></span></div>
+        <a class="btn" data-wa="Olá, Thammires! Vim pelo site e tenho interesse no plano PREMIUM do ensaio gestante." href="#">Garantir Minha Data Agora</a>
+        <div class="selo">EXPERIÊNCIA COMPLETA</div>
+      </div>
+      <div class="plano rev">
+        <h3>LIGHT</h3>
+        <p>Você quer guardar esse momento antes que ele passe.</p>
+        <p>Deseja imagens bonitas e bem conduzidas, sem uma experiência longa ou muitas produções. É um ensaio objetivo e acolhedor: você chega, vive seu momento e leva uma lembrança linda da sua gestação.</p>
+        <hr>
+        <div class="para"><span>Para quem deseja registrar.<i>“Não quero deixar essa fase passar sem registrar.”</i></span></div>
+        <a class="btn" data-wa="Olá, Thammires! Vim pelo site e tenho interesse no plano LIGHT do ensaio gestante." href="#">Garantir Minha Data Agora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. AGENDAMENTOS -->
+<section class="sec agenda">
+  <div class="wrap">
+    <div class="ag-grid">
+      <div class="ag-box rev">
+        <h3>Agendamentos</h3>
+        <p>Para garantir qualidade e cuidado em cada ensaio, a agenda é bem limitada. Cada gestante recebe tempo, atenção exclusiva e condução completa durante toda a experiência. Por isso as vagas são poucas e devem ser reservadas com a maior antecedência possível.</p>
+      </div>
+      <div class="ag-box rev">
+        <h3>Quando fazer o ensaio</h3>
+        <p>O período mais indicado é entre <strong>28 e 32 semanas</strong>. Nessa fase a barriga já está bem evidente e você ainda se sente confortável para viver a experiência com tranquilidade. Por isso, o ideal é agendar com antecedência para garantir a data nesse intervalo.</p>
+      </div>
+    </div>
+    <div class="foto ag-foto rev"><img src="../assets/fotos/carrossel/05.jpg" alt="Gestante em balanço de lua entre nuvens" loading="lazy"></div>
+    <div class="ag-grid">
+      <div class="ag-box rev">
+        <h3>Importante!</h3>
+        <p>As datas costumam ser preenchidas rapidamente, principalmente para o período ideal da gestação.</p>
+      </div>
+      <div class="ag-box rev">
+        <h3>Se você deseja viver essa experiência</h3>
+        <p>Se esse tipo de ensaio faz sentido para você, e você valoriza ser bem conduzida, com calma e atenção em cada detalhe:</p>
+        <a class="btn" data-wa="Olá, Thammires! Vim pelo site e quero verificar as datas disponíveis para o meu ensaio gestante." href="#">Verificar Datas Disponíveis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. PERGUNTAS FREQUENTES -->
+<section class="sec" style="padding-top:30px">
+  <div class="wrap faq-grid">
+    <div class="faq-esq rev">
+      <h2 class="titulo">Perguntas Frequentes</h2>
+      <p>Se ficou alguma dúvida, fale com a gente pelo WhatsApp! Vai ser um prazer responder e explicar tudo com calma.</p>
+      <a class="btn" style="margin-top:22px" data-wa="Olá, Thammires! Vim pelo site e tenho uma dúvida sobre o ensaio gestante." href="#">Falar com a Thammires</a>
+      <div class="foto"><img src="../assets/fotos/carrossel/01.jpg" alt="Gestante entre papéis amassados" loading="lazy"></div>
+    </div>
+    <div class="faq-lista">
+      <details class="faq rev"><summary>E se eu não me sentir à vontade durante o ensaio?</summary><div class="resp">É muito comum chegar com esse receio. O ensaio começa devagar, com conversa e tempo para você se acostumar. Cada pose é mostrada e ajustada com calma, e você pode pausar sempre que precisar.</div></details>
+      <details class="faq rev"><summary>Como vou saber qual figurino usar no dia do ensaio?</summary><div class="resp">Você não precisa decidir sozinha. Antes do ensaio, os figurinos são escolhidos junto com você, de acordo com seu estilo, suas cores e a proposta das fotos.</div></details>
+      <details class="faq rev"><summary>Tenho medo de ficar artificial e não me reconhecer nas fotos...</summary><div class="resp">A ideia é justamente o contrário: valorizar quem você é. A maquiagem é pensada para a câmera, mas respeitando seus traços, e a edição é cuidadosa para manter a sua naturalidade.</div></details>
+      <details class="faq rev"><summary>E se eu estiver inchada ou não me sentindo bem no dia?</summary><div class="resp">A gestação tem dias assim, e está tudo bem. A direção, a luz e os ângulos são pensados para o seu conforto e para valorizar o seu corpo. Se você não estiver bem de saúde, a gente conversa sobre a melhor solução.</div></details>
+      <details class="faq rev"><summary>Tenho pouco tempo, vale a pena mesmo assim?</summary><div class="resp">Vale. Existe uma opção mais objetiva (o plano LIGHT), feita para quem quer registrar esse momento com qualidade sem precisar de muitas horas.</div></details>
+      <details class="faq rev"><summary>E se eu deixar para decidir mais perto da data?</summary><div class="resp">O risco é não encontrar mais vaga no período ideal, entre 28 e 32 semanas. Como a agenda é limitada, o mais seguro é reservar com antecedência.</div></details>
+      <details class="faq rev"><summary>Por que as fotos parecem tão diferentes de outros ensaios?</summary><div class="resp">Porque nada é feito por acaso: cenário, figurino, luz, direção e edição são planejados juntos para contar a sua história com identidade e delicadeza.</div></details>
+      <details class="faq rev"><summary>E se eu não souber qual experiência escolher?</summary><div class="resp">É só chamar no WhatsApp. A partir do que você imagina para esse momento, a Thammires indica o plano que faz mais sentido para você.</div></details>
+      <details class="faq rev"><summary>E o resultado final da edição? O que muda na imagem?</summary><div class="resp">A edição cuida de luz, cor, pele e acabamento artístico, sempre de forma delicada, para que as fotos fiquem sofisticadas sem perder a sua essência.</div></details>
+      <details class="faq rev"><summary>Vale a pena investir mais nesse ensaio?</summary><div class="resp">A gestação passa rápido e não volta. Essas imagens vão contar essa fase para você e para o seu filho por toda a vida, e a experiência de se sentir linda nesse momento também fica.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 13. RODAPÉ -->
+<footer>
+  <img class="logo" src="../assets/logo.png" alt="Thammires Turunem">
+  <div class="redes">
+    <a id="lnk-insta" href="#" target="_blank" rel="noopener" aria-label="Instagram" hidden><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></a>
+    <a data-wa="Olá, Thammires! Vim pelo site." href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a>
+  </div>
+  <p>Todos os direitos reservados | Thammires Turunem <span id="ano"></span></p>
+</footer>
+
+<script>
+/* ===================== CONFIGURAÇÃO ===================== */
+var WHATSAPP = "5532988364129";   // DDI + DDD + número, só números
+var PIXEL_ID = "";                // ID do Pixel da Meta (vazio = desligado). Clique no WhatsApp dispara "Contact".
+var INSTAGRAM = "";               // ex.: "https://instagram.com/usuario" (vazio = ícone escondido)
+var FOTOS_RESULTADOS = ["11","02","09","04","07","05","08","03","10","06","01"]
+  .map(function(n){ return "../assets/fotos/carrossel/" + n + ".jpg"; });
+var DEPOIMENTOS = [               // prints de depoimentos reais, ex.: "depoimentos/01.jpg" (vazio = seção escondida)
+];
+/* ======================================================== */
+
+// Pixel
+if (PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', PIXEL_ID); fbq('track', 'PageView');
+}
+
+// Botões de WhatsApp
+document.querySelectorAll("[data-wa]").forEach(function(a){
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.wa);
+  a.target = "_blank"; a.rel = "noopener";
+  if (a.classList.contains("btn")) a.insertAdjacentHTML("afterbegin", '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>');
+  a.addEventListener("click", function(){
+    if (window.fbq) fbq("track", "Contact", { content_name: a.textContent.trim() });
+  });
+});
+
+// Instagram
+if (INSTAGRAM) { var ig = document.getElementById("lnk-insta"); ig.href = INSTAGRAM; ig.hidden = false; }
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+// Carrossel de resultados
+(function(){
+  var trilho = document.getElementById("trilho"), pontos = document.getElementById("pontos");
+  FOTOS_RESULTADOS.forEach(function(src, i){
+    trilho.insertAdjacentHTML("beforeend", '<div class="foto"><img src="'+src+'" alt="Ensaio gestante '+(i+1)+'" loading="lazy"></div>');
+    var b = document.createElement("button"); b.setAttribute("aria-label", "Foto " + (i+1));
+    b.onclick = function(){ ir(i); }; pontos.appendChild(b);
+  });
+  var itens = trilho.children, botoes = pontos.children;
+  function passo(){ return itens[1] ? itens[1].offsetLeft - itens[0].offsetLeft : trilho.clientWidth; }
+  function atual(){ return Math.round(trilho.scrollLeft / passo()); }
+  function ir(i){ var max = itens.length - 1; if (i < 0) i = max; if (i > max) i = 0;
+    if (trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4 && i > atual()) i = 0;
+    trilho.scrollTo({ left: i * passo(), behavior: "smooth" }); }
+  function marca(){ var a = atual(); for (var k = 0; k < botoes.length; k++) botoes[k].classList.toggle("on", k === a); }
+  trilho.addEventListener("scroll", function(){ requestAnimationFrame(marca); }); marca();
+  document.getElementById("ant").onclick = function(){ ir(atual() - 1); };
+  document.getElementById("prox").onclick = function(){ ir(atual() + 1); };
+  var auto = setInterval(function(){ ir(atual() + 1); }, 3500);
+  ["pointerdown","touchstart"].forEach(function(ev){ trilho.addEventListener(ev, function(){ clearInterval(auto); }, { passive: true }); });
+})();
+
+// Depoimentos
+if (DEPOIMENTOS.length) {
+  var d = document.getElementById("depo");
+  DEPOIMENTOS.forEach(function(src){ d.insertAdjacentHTML("beforeend", '<img src="'+src+'" alt="Depoimento de cliente" loading="lazy">'); });
+  document.getElementById("depoimentos").hidden = false;
+}
+
+// Animação de entrada
+var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } }); }, { threshold: .12 });
+document.querySelectorAll(".rev").forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
