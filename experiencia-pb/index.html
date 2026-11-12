@@ -87,13 +87,13 @@ strong,b{font-weight:600}
 .hero p b{font-weight:600}
 
 /* ---------- 2. Faixa ---------- */
-.faixa{background:var(--marrom);color:#000000;overflow:hidden;height:100px;display:flex;align-items:center;white-space:nowrap}
+.faixa{background:var(--marrom);color:#000000;overflow:hidden;height:64px;display:flex;align-items:center;white-space:nowrap}
 .faixa-track{display:flex;align-items:center;width:max-content;animation:corre 30s linear infinite;font-family:var(--sans);font-size:20px;line-height:30px}
 .faixa-track .it{display:inline-flex;align-items:center;gap:10px;padding:0 26px}
 .faixa-track .it svg{width:25px;height:25px;flex:none}
 .faixa-track .it span{font-weight:300}
 .faixa-track .it b{font-weight:500}
-.faixa-track .dot{font-size:18px;color:rgba(0,0,0,.314)}
+.faixa-track .dot{font-size:11px;color:#000}
 @keyframes corre{to{transform:translateX(-50%)}}
 
 /* ---------- 3. Método ---------- */
@@ -285,7 +285,9 @@ footer .logo:hover{transform:scale(1.1)}
   .hero .btn{font-size:14px;padding:16px 30px}
 
   .faixa-track{font-size:13px;line-height:19.5px}
-  .faixa-track .it{padding:0 60px}
+  .faixa{height:44px}
+  .faixa-track .it{padding:0 22px}
+  .faixa-track .dot{font-size:9px}
 
   .s-metodo{padding:128px 0 127px}
   .metodo{grid-template-columns:1fr;height:auto;padding:18px;gap:32px;text-align:center}
@@ -481,8 +483,8 @@ footer svg{fill:#fff}
 <!-- 2. FAIXA -->
 <div class="faixa" aria-hidden="true">
   <div class="faixa-track">
-    <div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span>
-    <div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><svg viewBox="0 0 25 25"><path d="M12.44 0l12.44 12.44-12.44 12.44L0 12.44z" fill="#000000"/><path d="M11.2 15.8l-2.9-2.9 1.1-1.1 1.8 1.8 4.4-4.4 1.1 1.1z" fill="#FFFFFF"/></svg><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span>
+    <div class="it"><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span><div class="it"><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span>
+    <div class="it"><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span><div class="it"><span>Tempo de</span><b>Qualidade</b></div><span class="dot">◆</span><div class="it"><span>Escuta</span><b>Ativa</b></div><span class="dot">◆</span><div class="it"><span>Criação</span><b>Exclusiva</b></div><span class="dot">◆</span><div class="it"><span>Experiência</span><b>Emocional</b></div><span class="dot">◆</span>
   </div>
 </div>
 
