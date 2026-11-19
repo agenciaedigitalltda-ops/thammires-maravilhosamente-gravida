@@ -17,7 +17,7 @@ window.APP_CONFIG = {
   negocio: {
     nome: "Thammires Turunem",
     responsavel: "Thammires",
-    whatsapp: "32988364129",
+    whatsapp: "32988374129",
     logoUrl: "assets/logo.png",
     nomeNaLogo: true,    // a logo já tem o nome escrito (não repete o nome embaixo)
     descricao: ""        // uma frase curta que aparece na página inicial
