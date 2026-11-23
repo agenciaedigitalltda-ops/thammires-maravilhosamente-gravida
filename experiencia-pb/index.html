@@ -750,7 +750,7 @@ document.querySelectorAll("[data-wa]").forEach(function(a){
   a.target = "_blank"; a.rel = "noopener";
   if (a.classList.contains("btn")) a.insertAdjacentHTML("afterbegin", '<svg aria-hidden="true"><use href="#i-wa"/></svg>');
   a.addEventListener("click", function(){
-    if (window.fbq) fbq("track", "Contact", { content_name: a.textContent.trim() });
+    if (window.fbq) { fbq("track", "Contact", { content_name: a.textContent.trim() }); fbq("track", "Lead", { content_name: a.textContent.trim() }); }
   });
 });
 
